@@ -1,4 +1,4 @@
-
+# Predefined dictionary of groceries with prices
 groceries = {
     "apple": 0.50,
     "banana": 0.25,
