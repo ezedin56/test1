@@ -1,3 +1,5 @@
+# Vending Machine Program, allowing users to select items and generate a receipt.
+
 def vending_machine():
     # Define available items with their details
     items = {
