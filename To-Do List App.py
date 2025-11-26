@@ -33,7 +33,20 @@ def todo_list_app():
         print("2 - Medium 🟡") 
         print("3 - Low 🟢")
         
-        # Get priority from user
+        try:
+            priority_choice = int(input("Enter priority (1-3): "))
+            if priority_choice == 1:
+                priority = "High"
+            elif priority_choice == 2:
+                priority = "Medium"
+            elif priority_choice == 3:
+                priority = "Low"
+            else:
+                print("❌ Invalid priority! Setting to Medium.")
+                priority = "Medium"
+        except ValueError:
+            print("❌ Invalid input! Setting priority to Medium.")
+            priority = "Medium"
         
         task = {
             "id": task_id_counter,
