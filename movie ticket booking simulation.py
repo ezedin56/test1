@@ -141,8 +141,48 @@ def movie_booking_system():
             print("❌ Please enter a valid Movie ID!")
             return False
     
-    # Main booking loop
-    
+    # Main Booking loop
+    while True:
+        print("\n" + "=" * 40)
+        print("           MAIN MENU")
+        print("=" * 40)
+        print("1. Book movie tickets")
+        print("2. View current bookings")
+        print("3. Checkout and exit")
+        
+        choice = input("\nEnter your choice (1-3): ").strip()
+        
+        if choice == "1":
+            book_tickets()
+        
+        elif choice == "2":
+            if not bookings:
+                print("\n📭 No bookings yet!")
+            else:
+                print("\n" + "=" * 60)
+                print("           YOUR BOOKINGS")
+                print("=" * 60)
+                total_tickets = 0
+                
+                for i, booking in enumerate(bookings, 1):
+                    print(f"\nBooking #{i}:")
+                    print(f"  🎬 Movie: {booking['movie']}")
+                    print(f"  🕐 Showtime: {booking['showtime']}")
+                    print(f"  🎟️  Tickets: {booking['tickets']}")
+                    print(f"  💰 Price per ticket: ${booking['price_per_ticket']:.2f}")
+                    print(f"  💵 Subtotal: ${booking['subtotal']:.2f}")
+                    total_tickets += booking['tickets']
+                
+                print("\n" + "-" * 40)
+                print(f"Total Bookings: {len(bookings)}")
+                print(f"Total Tickets: {total_tickets}")
+                print(f"Total Cost: ${total_cost:.2f}")
+        
+        elif choice == "3":
+            break
+        
+        else:
+            print("❌ Invalid choice! Please enter 1, 2, or 3.")
     
     # Final summary
     print("\n" + "=" * 60)
